@@ -22,15 +22,15 @@ Children who speak Bhojpuri at home but study in Hindi-medium schools often make
 2. **Correct and produce** verb and adjective/possessive forms (‑आ / ‑ई / ‑ए) that agree with the noun, in present- and past-tense sentences, getting at least 4 of 5 right.
 3. **Explain**, in one sentence of their own, why a form is required ("verb follows the noun, not the speaker"), and **distinguish** an acceptable regional variant from an agreement error in 2 given sentences.
 
-**Context of use:** At home in the evening, 20–25 minutes, on a parent's low-end Android phone (Chrome), sometimes in the school computer period. Typing is in Devanagari using the Google Indic keyboard.
+**Context of use:** The Hindi teacher sets it as language-support practice after a Hindi writing task, because that's when gender-agreement errors show up. The learner uses it in the school computer lab and finishes it as Hindi homework on the family smartphone (Chrome). Answers are typed in Devanagari, or built by tapping words from an on-screen word bank.
 
 ## D2 – Learner persona
-- **Name / age:** Sonu Kumar, 11, Class 6, government Hindi-medium school, Ballia (eastern UP)
+- **Name / age:** Sonu Kumar, 11, Class 6, Hindi-medium school in Varanasi. His family is from Ballia district and speaks **Bhojpuri at home**; everything at school is in **Hindi** (the L8 gap).
 - **Home language:** Bhojpuri. **School / reading language:** Hindi. Weak in English.
 - **Prior knowledge:** Reads and writes Devanagari fluently. Knows that लड़का/लड़की and भाई/बहन are "boy/girl" words. Can recognise naam/kaam words (noun/verb) informally. Does **not** know that non-living nouns have grammatical gender, or that verbs and possessives must agree with the noun.
 - **Misconception M1 – "masculine default":** The verb ending is always ‑आ (गया, खाता, आया), whatever the subject. → *मेरी बहन स्कूल गया।* Source: home-language habit of not changing the verb for gender.
 - **Misconception M2 – "possessive/adjective follows the owner/speaker":** मेरा/मेरी depends on who is speaking or owning, not on the thing owned. A boy writes *मेरा किताब* ("I am a boy, so मेरा"). Source: home language uses one possessive form for everything.
-- **Device / time:** Father's Android phone (5.5", 360 px), evenings, about 20 min, mobile data
+- **Device / time:** School computer lab during the Hindi period, plus the family smartphone for Hindi homework; about 15–20 minutes per use
 - **Motivation:** Lost marks in a Hindi test for "लिंग की गलती" and felt laughed at for speaking "गाँव वाली हिंदी". Wants better marks without being told his home language is wrong.
 
 ## D3 – Content plan (all learner text in Hindi)
@@ -84,6 +84,16 @@ Footer on every screen: **23B2503**. Language toggle हिंदी / English (
 - **Validation:** The JSON shape is checked, and the label is cross-checked against a rule-based checker (noun-gender lexicon + verb/possessive endings). If they disagree, the rule-based result is shown and flagged.
 - **Fallback:** If the call fails or times out, the rule-based checker is used, with a clearly labelled "ऑफ़लाइन जाँच" badge.
 - The API key is kept only in Vercel environment variables.
+
+## Card alignment: every feature maps to P2 · T2 · L8 · C2
+| Card | How the app meets it |
+|---|---|
+| **P2** Contextual language & literacy | NLP: **spelling/grammar feedback** on free sentences (Sarvam AI + rule-based agreement checker). Design challenge answered by three labels: ✅ correct / 🟡 regional variant (accepted) / ❌ agreement error (Q5, Q6). |
+| **T2** Hindi gender agreement | All content is about verb, adjective and मेरा/मेरी agreement with the noun; noun-gender dictionary tool. |
+| **L8** Home language ≠ school medium | Misconceptions M1 and M2 come from home-speech habits; the explanation screen bridges home speech to school Hindi; regional forms like हम for मैं are accepted, not marked wrong. |
+| **C2** Learner's own language | Every screen, question and piece of feedback is in Hindi; English is an optional toggle. |
+
+Targeted practice after an error (one extra item on the same misconception) is part of P2 **feedback**: it lets the app respond differently to the misconception learner (D5).
 
 ## Tech
 Vanilla HTML/CSS/JS (no framework) and one Vercel serverless function. Progress is stored in localStorage.

@@ -19,7 +19,7 @@ const LEXICON = {
 // UI strings (hi default, en optional)
 const STR = {
   hi: {
-    appName:'लिंग मित्र', tagline:'हिंदी में लिंग का मेल सीखो — 10 मिनट में',
+    appName:'लिंग मित्र', tagline:'घर की बोली से स्कूल की हिंदी तक — लिंग का मेल सीखो',
     yourName:'तुम्हारा नाम', start:'शुरू करो', resume:'जहाँ छोड़ा था, वहीं से आगे', restart:'नए सिरे से शुरू',
     learn:'सीखो', next:'आगे', check:'जाँचो', tryAgain:'फिर से कोशिश', dict:'📖 लिंग शब्दकोश',
     close:'बंद करो', search:'शब्द खोजो…', masc:'पुल्लिंग', fem:'स्त्रीलिंग',
@@ -33,7 +33,7 @@ const STR = {
     pickAll:'हर शब्द के लिए चुनो', judgeHint:'हर वाक्य के लिए चुनो: सही, क्षेत्रीय रूप, या गलती',
   },
   en: {
-    appName:'Ling Mitra', tagline:'Learn Hindi gender agreement — in 10 minutes',
+    appName:'Ling Mitra', tagline:'From home speech to school Hindi — learn gender agreement',
     yourName:'Your name', start:'Start', resume:'Resume where you left off', restart:'Start over',
     learn:'Learn', next:'Next', check:'Check', tryAgain:'Try again', dict:'📖 Gender dictionary',
     close:'Close', search:'Search a word…', masc:'Masculine', fem:'Feminine',
