@@ -104,6 +104,7 @@
   → Q1 MCQ → Q2 Sort → Q3 Correct sentence → Q4 Fill blank → Q5 Judge → Q6 AI sentence → Q7 AI explanation
        ↳ inserted after a wrong answer:  ⭐ M1 extra item  |  ⭐ M2 extra item  |  📘 prerequisite lesson + sort
        ↳ inserted after 3 correct:       🚀 challenge item
+       ↳ inserted after ≥2 retries or ≥3 dictionary look-ups:  💡 strategy hint card
   → नतीजा (results per learning outcome, misconceptions seen, time, dictionary use)
 Always available: 📖 लिंग शब्दकोश (popup) · हिंदी | English toggle · footer "Roll No. 23B2503 · जानकारी (About)"</pre>
 <p>Each question screen moves from input (select, tap or type) to <b>जाँचो</b> (check), then shows feedback, then offers <b>फिर से कोशिश</b> (retry) or <b>आगे</b> (next).</p>
@@ -174,7 +175,9 @@ Return JSON: {"label":"correct"|"partial"|"error","misconception":"M1"|"M2"|"oth
 <li><b>Feedback names the noun and its gender</b> ("यहाँ बात बहन की है। बहन स्त्रीलिंग है…"). It never just says "wrong", and it always gives the reason the learner can reuse.</li>
 <li><b>Retry before moving on</b> (फिर से कोशिश), so the learner can act on the feedback straight away.</li>
 <li><b>Adaptive next step (rule in <code>adapt()</code>), decided on the first attempt:</b> wrong with M1 or M2 → one extra item on the same misconception; 2 or more wrong in noun sorting → prerequisite mini-lesson on noun gender plus another sort; 3 correct in a row → harder challenge. Each insertion happens at most once, and a banner tells the learner why it appeared, so the system stays transparent and doesn't feel punishing.</li>
-<li><b>Tool support:</b> the gender dictionary lets the learner look up a noun instead of guessing. How often they open it is logged.</li>
+<li><b>Interaction-based adaptation (rule in <code>adaptInteraction()</code>):</b> if the learner retries the same item 2 or more times, or opens the gender dictionary 3 or more times, a 💡 strategy hint card is inserted before the next item. It gives a 3-question self-check: who is the sentence about, what is its gender, which ending follows. So the app adapts to both <b>performance</b> (answers and misconception tags) and <b>interaction</b> (retries, help use).</li>
+<li><b>Tool support:</b> the gender dictionary lets the learner look up a noun instead of guessing. How often they open it is logged and feeds the interaction rule above.</li>
+<li><b>Conversational, cued explanation:</b> the explanation speaks directly to the learner ("चलो, आज हम… राज़ की बात जानते हैं"), works through an example together ("चलो साथ में करके देखें…"), and uses the verbal cues पहला / दूसरा / तीसरा कदम. Colour (blue/pink), highlighting and boxes mark the key points.</li>
 </ul>
 <h3>Answer to the P2 design challenge: errors vs dialect/pronunciation variation</h3>
 <p>Every check returns one of three labels, and <b>only</b> a mismatch between a noun and its verb/adjective/possessive counts as an error:</p>
@@ -201,7 +204,7 @@ Return JSON: {"label":"correct"|"partial"|"error","misconception":"M1"|"M2"|"oth
 <h3>Log data collected (already recorded in the app's event log)</h3>
 <ul>
 <li>Every answer: question id, first attempt or retry, correct or not, misconception tag (M1/M2/noun/other), timestamp</li>
-<li>Adaptive insertions: which extra item, prerequisite or challenge was added, and why</li>
+<li>Adaptive insertions: which extra item, prerequisite, challenge or hint card was added, and why (performance or interaction trigger)</li>
 <li>AI usage: what the AI returned, what was shown (AI, rule or offline fallback), and disagreements</li>
 <li>Gender-dictionary opens, retries, start and resume times, total time</li>
 </ul>

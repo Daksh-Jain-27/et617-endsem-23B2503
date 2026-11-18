@@ -51,21 +51,26 @@ const STR = {
 // Concept explanation
 const LESSON = {
   hi: `
-  <p>हिंदी में हर संज्ञा या तो <b class="m">पुल्लिंग</b> है या <b class="f">स्त्रीलिंग</b> — <mark>चीज़ें भी!</mark></p>
+  <p>नमस्ते! 👋 चलो, आज हम हिंदी की एक <mark>राज़ की बात</mark> जानते हैं। सिर्फ़ तीन कदम हैं।</p>
+  <p><b>पहला कदम:</b> हिंदी में हर संज्ञा या तो <b class="m">पुल्लिंग</b> है या <b class="f">स्त्रीलिंग</b> — <mark>चीज़ें भी!</mark></p>
   <div class="box"><b class="f">स्त्रीलिंग:</b> किताब, बस, चाय, बहन<br><b class="m">पुल्लिंग:</b> पानी, दूध, पेड़, भाई</div>
-  <p><b>नियम:</b> क्रिया और विशेषण <mark>संज्ञा के हिसाब से</mark> बदलते हैं, बोलने वाले के हिसाब से नहीं।</p>
+  <p><b>दूसरा कदम:</b> वाक्य में देखो — <b>किसकी बात हो रही है?</b> उस संज्ञा को ढूँढो।</p>
+  <p><b>तीसरा कदम:</b> अब क्रिया और विशेषण को <mark>उसी संज्ञा के हिसाब से</mark> बदलो — बोलने वाले के हिसाब से नहीं।</p>
   <table class="rule"><tr><th></th><th>क्रिया</th><th>विशेषण</th><th>मेरा/मेरी</th></tr>
   <tr><td class="m">पुल्लिंग → आ</td><td>गया</td><td>अच्छा</td><td>मेरा</td></tr>
   <tr><td class="f">स्त्रीलिंग → ई</td><td>गई</td><td>अच्छी</td><td>मेरी</td></tr>
   <tr><td class="m">पुल्लिंग बहुवचन → ए</td><td>गए</td><td>अच्छे</td><td>मेरे</td></tr></table>
-  <div class="box"><b>उदाहरण:</b> <span class="f">मेरी बहन</span> स्कूल <span class="f">गई</span>। · <span class="m">मेरा भाई</span> स्कूल <span class="m">गया</span>।<br>
-  सोनू (लड़का) भी कहेगा: <span class="f">मेरी किताब</span> — क्योंकि <b>किताब</b> स्त्रीलिंग है।</div>
+  <div class="box"><b>चलो साथ में करके देखें:</b> "मेरी बहन स्कूल ___।" किसकी बात है? <b>बहन</b> की। बहन स्त्रीलिंग है, तो <span class="f">गई</span>! ✅<br>
+  और <span class="m">मेरा भाई</span> स्कूल <span class="m">गया</span>।<br>
+  सोनू तो लड़का है, फिर भी वह कहेगा: <span class="f">मेरी किताब</span> — क्योंकि बात <b>किताब</b> की है, और किताब स्त्रीलिंग है।</div>
   <div class="box soft"><b>घर की बोली और स्कूल की हिंदी:</b> घर पर हम जैसे बोलते हैं, वह भी सही है। जैसे "हम जा रहे हैं" (मैं के लिए "हम") — यह गलती नहीं, क्षेत्रीय रूप है। पर स्कूल की हिंदी में लिंग का नियम पक्का है।</div>
   <p>💡 शक हो तो <b>📖 लिंग शब्दकोश</b> खोलो।</p>`,
   en: `
-  <p>In Hindi every noun is either <b class="m">masculine</b> or <b class="f">feminine</b> — <mark>even things!</mark></p>
+  <p>Hello! 👋 Let's learn a <mark>secret of Hindi</mark> together. Just three steps.</p>
+  <p><b>Step 1:</b> In Hindi every noun is either <b class="m">masculine</b> or <b class="f">feminine</b> — <mark>even things!</mark></p>
   <div class="box"><b class="f">Feminine:</b> kitaab (book), bus, chai, behan (sister)<br><b class="m">Masculine:</b> paani (water), doodh (milk), ped (tree), bhai</div>
-  <p><b>Rule:</b> verbs and adjectives change <mark>according to the noun</mark>, not the speaker.</p>
+  <p><b>Step 2:</b> Ask — <b>who or what is the sentence about?</b> Find that noun.</p>
+  <p><b>Step 3:</b> Change the verb and adjective <mark>to match that noun</mark>, not the speaker.</p>
   <table class="rule"><tr><th></th><th>verb</th><th>adjective</th><th>my</th></tr>
   <tr><td class="m">masc → -aa</td><td>गया</td><td>अच्छा</td><td>मेरा</td></tr>
   <tr><td class="f">fem → -ii</td><td>गई</td><td>अच्छी</td><td>मेरी</td></tr>
@@ -86,6 +91,22 @@ const PREREQ = {
   <div class="box">A trick: say the word with <b>"मेरा / मेरी"</b> as you've read it in school books:<br>
   <span class="f">मेरी किताब, मेरी बस, मेरी चाय</span> · <span class="m">मेरा पानी, मेरा घर, मेरा पेड़</span></div>
   <p>Most words ending in <b>-ii (ई)</b> are feminine (गाड़ी, कुर्सी, रोटी) — but <b>पानी</b>, <b>भाई</b> are exceptions! So check the dictionary.</p>`
+};
+
+// Strategy hint card (inserted on INTERACTION signals: many retries or many dictionary look-ups)
+const HINT = {
+  hi:`<p>लगता है यह थोड़ा मुश्किल लग रहा है — कोई बात नहीं, चलो एक आसान तरकीब अपनाते हैं। 🙂</p>
+  <div class="box"><b>हर बार ये 3 सवाल खुद से पूछो:</b><br>
+  <b>1.</b> वाक्य <b>किसके बारे में</b> है? (बहन? किताब? फ़ोन?)<br>
+  <b>2.</b> वह शब्द <b class="m">पुल्लिंग</b> है या <b class="f">स्त्रीलिंग</b>? (शक हो तो 📖 शब्दकोश)<br>
+  <b>3.</b> स्त्रीलिंग → <span class="f">ई</span> (गई, मेरी) · पुल्लिंग → <span class="m">आ</span> (गया, मेरा)</div>
+  <p>बोलने वाला लड़का है या लड़की — इससे <b>फ़र्क नहीं</b> पड़ता!</p>`,
+  en:`<p>Looks like this is a bit tricky — no problem, let's use an easy trick. 🙂</p>
+  <div class="box"><b>Ask yourself these 3 questions every time:</b><br>
+  <b>1.</b> <b>Who/what</b> is the sentence about? (बहन? किताब? फ़ोन?)<br>
+  <b>2.</b> Is that word <b class="m">masculine</b> or <b class="f">feminine</b>? (unsure → 📖 dictionary)<br>
+  <b>3.</b> Feminine → <span class="f">ई</span> (गई, मेरी) · Masculine → <span class="m">आ</span> (गया, मेरा)</div>
+  <p>Whether the speaker is a boy or a girl <b>doesn't matter</b>!</p>`
 };
 
 // Question bank. tag on wrong options = misconception shown by choosing it.

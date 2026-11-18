@@ -33,6 +33,16 @@ function adapt(qid, ok, tag){
   else if (tag==='M2' && !S.inserted.M2){ S.inserted.M2=true; insert(['r_m2'],'M2'); }
   else if (tag==='noun' && !S.inserted.noun){ S.inserted.noun=true; insert(['prereq','r_noun'],'noun'); }
 }
+// interaction-based rule (checked when the learner moves on):
+//  retried the same item ≥2 times, OR opened the dictionary ≥3 times -> strategy hint card (once)
+function adaptInteraction(qid){
+  const retries = (S.retries && S.retries[qid]) || 0;
+  if (!S.inserted.hint && (retries >= 2 || S.dictOpens >= 3)){
+    S.inserted.hint = true;
+    S.queue.splice(S.pos+1, 0, 'hint'); S.reason.hint = 'interaction';
+    log('adapt_interaction', {retries, dictOpens:S.dictOpens});
+  }
+}
 function record(qid, ok, tag, detail){
   const first = !S.results[qid];
   if (first){ S.results[qid] = {ok, tag, lo:(QUESTIONS[qid]||{}).lo}; adapt(qid, ok, tag); }
@@ -81,7 +91,8 @@ function reasonBanner(qid){
     M1: hi?'⭐ अतिरिक्त अभ्यास — पिछले सवाल में "आ" वाला रूप चुना था, तो एक और ऐसा सवाल।':'⭐ Extra practice — you chose the "-aa" form last time, so one more like it.',
     M2: hi?'⭐ अतिरिक्त अभ्यास — मेरा/मेरी पर एक और सवाल।':'⭐ Extra practice — one more on mera/meri.',
     noun: hi?'📘 पहले यह समझो — कुछ शब्दों का लिंग गलत चुना गया था।':'📘 First understand this — some word genders were chosen wrongly.',
-    streak: hi?'🚀 तीन सही लगातार! अब एक कठिन चुनौती।':'🚀 Three correct in a row! Now a harder challenge.'
+    streak: hi?'🚀 तीन सही लगातार! अब एक कठिन चुनौती।':'🚀 Three correct in a row! Now a harder challenge.',
+    interaction: hi?'💡 तुमने कई बार कोशिश की / शब्दकोश देखा — तो यह छोटी-सी तरकीब तुम्हारे लिए।':'💡 You retried / used the dictionary several times — so here is a quick trick for you.'
   }[r];
   return `<div class="banner ${r}">${msg}</div>`;
 }
@@ -90,6 +101,8 @@ function renderQ(){
   const qid = S.queue[S.pos];
   if (!qid){ return renderResult(); }
   if (qid==='prereq') return `<section class="card">${progressBar()}${reasonBanner(qid)}<h2>${T('prereq')}</h2>${PREREQ[S.lang]}
+     <button class="btn primary" data-act="next">${T('next')} →</button></section>`;
+  if (qid==='hint') return `<section class="card">${progressBar()}${reasonBanner(qid)}<h2>💡 ${S.lang==='hi'?'एक आसान तरकीब':'An easy trick'}</h2>${HINT[S.lang]}
      <button class="btn primary" data-act="next">${T('next')} →</button></section>`;
   const q = QUESTIONS[qid];
   let body = '';
@@ -285,8 +298,8 @@ document.addEventListener('click', e=>{
   if (a==='chip'){ const t=document.getElementById('txt'); const q=QUESTIONS[S.queue[S.pos]]; t.value = q.single ? b.dataset.v : (t.value+' '+b.dataset.v).replace(/\s+।/,'।').trim(); ui.sel.txt=t.value; }
   if (a==='clr'){ document.getElementById('txt').value=''; ui.sel.txt=''; }
   if (a==='check'){ QUESTIONS[S.queue[S.pos]] && QUESTIONS[S.queue[S.pos]].type==='ai' ? checkAI() : checkCurrent(); }
-  if (a==='retry'){ log('retry',{}); ui = {answered:false, sel:{}, fb:null}; render(); }
-  if (a==='next'){ S.pos++; if (S.pos>=S.queue.length){ go('result'); } else go('q'); }
+  if (a==='retry'){ const id=S.queue[S.pos]; S.retries=S.retries||{}; S.retries[id]=(S.retries[id]||0)+1; log('retry',{n:S.retries[id]}); ui = {answered:false, sel:{}, fb:null}; render(); }
+  if (a==='next'){ adaptInteraction(S.queue[S.pos]); S.pos++; if (S.pos>=S.queue.length){ go('result'); } else go('q'); }
   if (a==='back'){ go(S.lastScreen && S.lastScreen!=='about' ? S.lastScreen : 'home'); }
 });
 document.getElementById('langBtn').onclick = ()=>{ S.lang = S.lang==='hi'?'en':'hi'; save(); render(); dictLabels(); };
