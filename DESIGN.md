@@ -80,10 +80,11 @@ Only agreement errors between a noun and its verb/adjective/possessive count as 
 Footer on every screen: **23B2503**. Language toggle हिंदी / English (C2).
 
 ## AI plan
-- `/api/check` (Vercel serverless) → LLM (Claude Haiku) with a fixed prompt. It returns JSON: `{label: correct|variant|error, misconception: M1|M2|none, corrected, feedback_hi}`.
+- `/api/check` (Vercel serverless) → **Sarvam AI** (`sarvam-105b`, an Indian-language LLM, via `api.sarvam.ai/v1/chat/completions`) with a fixed teacher prompt. Used only for the open-ended questions: Q6 (own sentence → `{label: correct|variant|error, misconception: M1|M2|other|none, corrected, feedback_hi, feedback_en}`) and Q7 (explanation → `{label: correct|partial|error, misconception, feedback_hi, feedback_en}`).
+- Fixed-answer questions (Q1–Q5) are checked by rules only: exact answers need no AI.
 - **Validation:** The JSON shape is checked, and the label is cross-checked against a rule-based checker (noun-gender lexicon + verb/possessive endings). If they disagree, the rule-based result is shown and flagged.
 - **Fallback:** If the call fails or times out, the rule-based checker is used, with a clearly labelled "ऑफ़लाइन जाँच" badge.
-- The API key is kept only in Vercel environment variables.
+- The API key is kept only in the Vercel environment variable `SARVAM_API_KEY`; the server enforces a 20 s timeout.
 
 ## Card alignment: every feature maps to P2 · T2 · L8 · C2
 | Card | How the app meets it |
