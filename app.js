@@ -45,7 +45,9 @@ function go(screen){ S.screen = screen; ui = {answered:false, sel:{}, fb:null}; 
 
 function render(){
   document.documentElement.lang = S.lang;
-  document.getElementById('langBtn').textContent = S.lang==='hi' ? 'English' : 'हिंदी';
+  document.getElementById('langBtn').innerHTML = S.lang==='hi'
+    ? '<span class="on">हिंदी</span> | <span class="off">English</span>'
+    : '<span class="off">हिंदी</span> | <span class="on">English</span>';
   document.getElementById('dictBtn').textContent = T('dict');
   document.getElementById('aboutLink').textContent = T('about');
   const f = {home:renderHome, learn:renderLearn, q:renderQ, result:renderResult, about:renderAbout}[S.screen] || renderHome;
