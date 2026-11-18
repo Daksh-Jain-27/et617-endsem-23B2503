@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ET617 End-Sem Report – 23B2503</title>
+<style>
+  @page{size:A4;margin:16mm 15mm}
+  body{font:10.5pt/1.45 "Segoe UI","Noto Sans Devanagari","Nirmala UI",Arial,sans-serif;color:#111;max-width:180mm;margin:0 auto}
+  h1{font-size:17pt;margin:0 0 4px}
+  h2{font-size:13pt;margin:18px 0 6px;padding-bottom:3px;border-bottom:2px solid #2f5d8a;color:#2f5d8a}
+  h3{font-size:11pt;margin:12px 0 4px}
+  table{border-collapse:collapse;width:100%;margin:6px 0 10px;page-break-inside:auto}
+  td,th{border:1px solid #bbb;padding:4px 6px;vertical-align:top;text-align:left}
+  th{background:#eef2f7}
+  tr{page-break-inside:avoid}
+  code,pre{font:9pt Consolas,monospace;background:#f4f4f4}
+  pre{padding:8px;white-space:pre-wrap;border:1px solid #ddd;page-break-inside:avoid}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:8px;page-break-inside:avoid}
+  .shots figure{margin:0;border:1px solid #ccc;padding:4px}
+  .shots img{width:100%;display:block}
+  figcaption{font-size:9pt;color:#333;margin-top:3px}
+  .muted{color:#555}
+  .hi{font-family:"Nirmala UI","Noto Sans Devanagari",sans-serif}
+  footer{margin-top:20px;font-size:9pt;color:#555;border-top:1px solid #ccc;padding-top:4px}
+</style>
+</head>
+<body>
+
+<h1>लिंग मित्र (Ling Mitra) – ET617 End-Semester Report</h1>
+<p class="muted">Roll No. <b>23B2503</b> · Live app: <b>https://et617-23b2503.vercel.app</b> · Repo: <b>github.com/Daksh-Jain-27/et617-endsem-23B2503</b></p>
+
+<h2>Identity card</h2>
+<table>
+<tr><th>Field</th><th>Choice</th></tr>
+<tr><td>ID</td><td><b>23B2503</b></td></tr>
+<tr><td>P – Problem</td><td><b>P2</b> – Contextual language and literacy application</td></tr>
+<tr><td>T – Topic</td><td><b>P2-T2</b> – Hindi: gender agreement (लिंग) in verbs and adjectives</td></tr>
+<tr><td>L – Learner context</td><td><b>L8</b> – Home language differs from school medium (Bhojpuri at home, Hindi-medium school)</td></tr>
+<tr><td>C – Design constraint</td><td><b>C2</b> – Learner's own language (all learner-facing text and feedback in Hindi; English toggle optional)</td></tr>
+</table>
+
+<h2>D1 – Educational problem</h2>
+<p>Children who speak Bhojpuri at home but study in Hindi-medium schools often make gender-agreement errors in written Hindi. Their home speech marks gender on verbs and possessives much less strictly than school Hindi, so they carry over a "one form fits all" habit and write <span class="hi">मेरी बहन स्कूल <b>गया</b></span> or <span class="hi"><b>मेरा</b> किताब</span>. Teachers usually just mark these red without explaining <i>why</i>. They also often mark harmless regional forms such as <span class="hi">हम जा रहे हैं</span> (हम for "I") as wrong, which shames the learner's home language. The learner needs short practice in their reading language (Hindi) that explains the agreement rule, separates real errors from acceptable regional variation, and gives targeted feedback for each misconception.</p>
+<h3>Learning outcomes</h3>
+<ol>
+<li><b>Classify</b> 10 common Hindi nouns, including non-living things (किताब, बस, चाय, पानी), as पुल्लिंग or स्त्रीलिंग with at least 80% accuracy.</li>
+<li><b>Correct and produce</b> verb and adjective/possessive forms (‑आ / ‑ई / ‑ए) that agree with the noun in present- and past-tense sentences, getting at least 4 of 5 right.</li>
+<li><b>Explain</b> in one sentence of their own why a form is required ("the verb follows the noun, not the speaker"), and <b>distinguish</b> an acceptable regional variant from an agreement error.</li>
+</ol>
+<p><b>Context of use:</b> The Hindi teacher sets it as language-support practice right after a Hindi writing task, when agreement errors appear. The learner uses it in the school computer lab and finishes it as Hindi homework on the family smartphone (Chrome), about 15–20 minutes per use. Answers are typed in Devanagari or built by tapping words from an on-screen word bank.</p>
+
+<h2>D2 – Learner persona</h2>
+<table>
+<tr><td style="width:28%"><b>Name / age</b></td><td>Sonu Kumar, 11, Class 6, Hindi-medium school in Varanasi. His family is from Ballia district.</td></tr>
+<tr><td><b>Language</b></td><td>Home: <b>Bhojpuri</b>. School and reading: <b>Hindi</b> (the L8 gap). English is weak.</td></tr>
+<tr><td><b>Prior knowledge</b></td><td>Reads and writes Devanagari fluently. Knows that लड़का/लड़की and भाई/बहन are "boy/girl" words. Recognises naming words and action words informally. Does <b>not</b> know that non-living nouns have grammatical gender, or that verbs and possessives must agree with the noun.</td></tr>
+<tr><td><b>Misconception M1 – "masculine default"</b></td><td>Every verb or adjective takes the ‑आ form, whatever the subject: <span class="hi">मेरी बहन स्कूल गया</span>, <span class="hi">चाय ठंडा है</span>. Source: home-speech habit of not changing the verb for gender.</td></tr>
+<tr><td><b>Misconception M2 – "possessive follows the speaker"</b></td><td>मेरा/मेरी depends on who is speaking or owning, not on the thing owned. A boy writes <span class="hi">मेरा किताब</span> ("I am a boy, so मेरा"). Source: home speech uses one possessive form for everything.</td></tr>
+<tr><td><b>Device / time</b></td><td>School computer lab during the Hindi period, plus the family smartphone for Hindi homework; about 15–20 minutes per use.</td></tr>
+<tr><td><b>Motivation</b></td><td>Lost marks in a Hindi test for "लिंग की गलती" and felt laughed at for speaking "गाँव वाली हिंदी". Wants better marks without being told his home language is wrong.</td></tr>
+</table>
+
+<h2>D3 – Educational content</h2>
+<h3>Concept explanation (screen "सीखो", as shown in the app)</h3>
+<div class="hi" style="border-left:4px solid #2f5d8a;padding:4px 10px;background:#f6f8fb">
+हिंदी में हर संज्ञा या तो <b>पुल्लिंग</b> है या <b>स्त्रीलिंग</b> — चीज़ें भी! स्त्रीलिंग: किताब, बस, चाय, बहन · पुल्लिंग: पानी, दूध, पेड़, भाई।<br>
+<b>नियम:</b> क्रिया और विशेषण संज्ञा के हिसाब से बदलते हैं, बोलने वाले के हिसाब से नहीं।<br>
+पुल्लिंग → ‑आ (गया, अच्छा, मेरा) · स्त्रीलिंग → ‑ई (गई, अच्छी, मेरी) · पुल्लिंग बहुवचन → ‑ए (गए, अच्छे, मेरे)<br>
+उदाहरण: मेरी बहन स्कूल गई। · मेरा भाई स्कूल गया। सोनू (लड़का) भी कहेगा: मेरी किताब — क्योंकि किताब स्त्रीलिंग है।<br>
+<b>घर की बोली और स्कूल की हिंदी:</b> घर पर हम जैसे बोलते हैं, वह भी सही है। जैसे "हम जा रहे हैं" — यह गलती नहीं, क्षेत्रीय रूप है। पर स्कूल की हिंदी में लिंग का नियम पक्का है।
+</div>
+<p><b>Tool:</b> a <span class="hi">📖 लिंग शब्दकोश</span> (noun-gender dictionary, about 70 nouns, searchable), available on every screen.</p>
+
+<h3>Tasks (7 core items in 6 formats, plus adaptive items)</h3>
+<table class="hi">
+<tr><th>#</th><th>Format</th><th>Item</th><th>Model answer</th><th>Targets</th></tr>
+<tr><td>Q1</td><td>MCQ</td><td>मेरी बहन कल स्कूल ___ । (गया / गई / गए)</td><td>गई</td><td>M1, LO2</td></tr>
+<tr><td>Q2</td><td>Sort (tap)</td><td>किताब, पानी, बस, दूध, चाय, पेड़ → पुल्लिंग / स्त्रीलिंग</td><td>स्त्री: किताब, बस, चाय · पुं: पानी, दूध, पेड़</td><td>LO1</td></tr>
+<tr><td>Q3</td><td>Correct the sentence (typed)</td><td>राहुल ने लिखा: "मेरा किताब खो गया।"</td><td>मेरी किताब खो गई।</td><td>M2 + M1, LO2</td></tr>
+<tr><td>Q4</td><td>Fill in the blank (typed)</td><td>आज चाय बहुत ___ है। (ठंडा / ठंडी)</td><td>ठंडी</td><td>M1, LO2</td></tr>
+<tr><td>Q5</td><td>Judge: correct / regional form / error</td><td>(a) हम कल मेला जाएँगे। (b) माँ बाज़ार गया। (c) मेरी दीदी स्कूल गई।</td><td>(a) regional form, OK (b) error → गई (c) correct</td><td>LO3, design challenge</td></tr>
+<tr><td>Q6</td><td>Free sentence (AI-checked)</td><td>कल तुम्हारी माँ या दीदी ने क्या किया? एक वाक्य लिखो।</td><td>e.g. मेरी दीदी बाज़ार गई।</td><td>LO2</td></tr>
+<tr><td>Q7</td><td>Explanation (AI-checked)</td><td>"मेरी बहन स्कूल गई" — "गई" क्यों सही है, "गया" क्यों नहीं?</td><td>बहन स्त्रीलिंग है; क्रिया संज्ञा के हिसाब से बदलती है, बोलने वाले के हिसाब से नहीं।</td><td>LO3</td></tr>
+<tr><td>+M1</td><td>MCQ (extra practice)</td><td>दादी रोज़ सुबह मंदिर ___ है। (जाता / जाती / जाते)</td><td>जाती</td><td>M1</td></tr>
+<tr><td>+M2</td><td>MCQ (extra practice)</td><td>प्रिया बोली: "___ फ़ोन टूट गया।" (मेरा / मेरी)</td><td>मेरा (फ़ोन is masculine, even though Priya is a girl)</td><td>M2</td></tr>
+<tr><td>+Noun</td><td>Prerequisite lesson + sort</td><td>गाड़ी, घर, कुर्सी, आम, घड़ी, जूता</td><td>स्त्री: गाड़ी, कुर्सी, घड़ी · पुं: घर, आम, जूता</td><td>LO1</td></tr>
+<tr><td>+Challenge</td><td>MCQ</td><td>मेरा भाई और मेरी बहन मेला ___ । (गया / गई / गए)</td><td>गए (a mixed group takes masculine plural)</td><td>LO2 extension</td></tr>
+</table>
+
+<h3>Feedback (actual text in the app)</h3>
+<table class="hi">
+<tr><th style="width:22%">Response</th><th>Feedback shown</th></tr>
+<tr><td>Correct (Q1)</td><td>शाबाश! <b>बहन</b> के हिसाब से <b>गई</b> सही है ✅</td></tr>
+<tr><td>M1 – masculine default (Q1 answered गया)</td><td>ध्यान दो — क्रिया/विशेषण हमेशा "आ" पर खत्म नहीं होते। यहाँ बात <b>बहन</b> की है। बहन स्त्रीलिंग है, तो <b>गया</b> नहीं, <b>गई</b>।</td></tr>
+<tr><td>M2 – possessive follows speaker (Q3 मेरा किताब)</td><td>"मेरा" इस पर निर्भर नहीं कि बोलने वाला लड़का है या लड़की। देखो <b>किस चीज़</b> की बात है — <b>किताब</b> स्त्रीलिंग है, इसलिए <b>मेरी किताब</b>।</td></tr>
+<tr><td>Regional variant (हम for मैं)</td><td>यह गलती नहीं है 🙂 "मैं" की जगह "हम" बोलना हमारे इलाके में आम है। लिंग सही है। परीक्षा में "मैं" लिखना ज़्यादा सुरक्षित है।</td></tr>
+</table>
+
+<h2>D4 – Working application</h2>
+<p><b>URL:</b> https://et617-23b2503.vercel.app · <b>Stack:</b> plain HTML/CSS/JavaScript (no framework or template) and one Vercel serverless function (<code>api/check.js</code>) calling Sarvam AI. No UI library was used.</p>
+<h3>Screen map</h3>
+<pre>Home (name · start / resume)
+  → सीखो (concept explanation + home-speech/school-Hindi bridge)
+  → Q1 MCQ → Q2 Sort → Q3 Correct sentence → Q4 Fill blank → Q5 Judge → Q6 AI sentence → Q7 AI explanation
+       ↳ inserted after a wrong answer:  ⭐ M1 extra item  |  ⭐ M2 extra item  |  📘 prerequisite lesson + sort
+       ↳ inserted after 3 correct:       🚀 challenge item
+  → नतीजा (results per learning outcome, misconceptions seen, time, dictionary use)
+Always available: 📖 लिंग शब्दकोश (popup) · हिंदी | English toggle · footer "Roll No. 23B2503 · जानकारी (About)"</pre>
+<p>Each question screen moves from input (select, tap or type) to <b>जाँचो</b> (check), then shows feedback, then offers <b>फिर से कोशिश</b> (retry) or <b>आगे</b> (next).</p>
+<p><b>C2 visibly implemented:</b> every screen, question, banner and piece of feedback is in Hindi by default (see the D5 screenshots). English is only an optional toggle.</p>
+
+<h2>D5 – Two contrasting learner scenarios (live app)</h2>
+<div class="shots">
+<figure><img src="a1-correct-q1.png"><figcaption><b>(a1) Correct learner:</b> Q1 answered गई → "शाबाश! बहन के हिसाब से गई सही है". The queue stays at 7.</figcaption></figure>
+<figure><img src="a2-challenge.png"><figcaption><b>(a2) Correct learner:</b> after 3 correct answers the app adds a 🚀 harder challenge (mixed-gender subject → गए).</figcaption></figure>
+<figure><img src="b1-m1-feedback.png"><figcaption><b>(b1) Learner with misconception M1:</b> Q1 answered गया → targeted feedback naming the noun (बहन) and its gender. The queue grows from 7 to 8.</figcaption></figure>
+<figure><img src="b2-extra-practice.png"><figcaption><b>(b2) Same learner:</b> the next screen is ⭐ extra practice on M1 (दादी … जाती है), with a banner saying why it appeared.</figcaption></figure>
+</div>
+<p>The system responds differently: the correct learner is moved up to a harder item, while the M1 learner gets an explanation of the specific misconception plus one more item on the same pattern before moving on.</p>
+
+<h2>D6 – AI functionality specification</h2>
+<h3>AI feature: Hindi agreement feedback on open-ended answers (Q6 sentence, Q7 explanation)</h3>
+<table>
+<tr><td style="width:22%"><b>What the AI does</b></td><td>Reads the learner's own Hindi sentence (Q6) or explanation (Q7). It labels the sentence correct, regional variant or agreement error, tags misconception M1 or M2, writes a corrected sentence, and gives short feedback in simple Hindi (plus English for the toggle).</td></tr>
+<tr><td><b>Model / call</b></td><td>Sarvam AI <code>sarvam-105b</code>, an Indian-language LLM, via <code>POST https://api.sarvam.ai/v1/chat/completions</code>, header <code>api-subscription-key</code> (stored only as the Vercel environment variable <code>SARVAM_API_KEY</code>). Parameters: <code>temperature 0.1</code>, 20 s server timeout. Called from the serverless function <code>/api/check</code>, never from the browser.</td></tr>
+<tr><td><b>Why AI only here</b></td><td>Q1–Q5 have fixed answers, so a rule check is exact, instant and free. AI is used only where answers are open-ended.</td></tr>
+</table>
+<h3>Actual prompt</h3>
+<pre>SYSTEM:
+You are a kind Hindi teacher for an 11-year-old Class 6 child (Sonu) who speaks Bhojpuri at home and studies in a Hindi-medium school.
+Topic: grammatical gender agreement (लिंग) of verbs, adjectives and possessives (मेरा/मेरी) with the NOUN in standard Hindi.
+Rules you must follow:
+- Only agreement between a noun and its verb/adjective/possessive counts as an ERROR.
+- Using "हम" for "मैं", spelling pairs गये/गए, नयी/नई, लिये/लिए, and other regional forms are ACCEPTABLE VARIANTS, never errors.
+- Misconception M1 = learner uses the masculine "-आ" form for a feminine noun (e.g. "माँ बाज़ार गया").
+- Misconception M2 = learner makes मेरा/मेरी follow the speaker/owner instead of the thing owned (e.g. a boy writes "मेरा किताब").
+- Feedback must be in very simple Hindi (max 2 short sentences, Class 6 level), warm, never shaming home speech. Also give an English version.
+Reply with ONLY a JSON object, no other text.
+
+USER (Q6):
+Learner's sentence (about what their mother/sister did): "&lt;learner text&gt;"
+Return JSON: {"label":"correct"|"variant"|"error","misconception":"M1"|"M2"|"other"|"none",
+ "corrected":"&lt;corrected sentence in Hindi&gt;","feedback_hi":"...","feedback_en":"..."}
+
+USER (Q7):
+Question asked: In "मेरी बहन स्कूल गई", why is "गई" correct and not "गया"?
+Model answer: "बहन स्त्रीलिंग है, और क्रिया संज्ञा (बहन) के हिसाब से बदलती है, बोलने वाले के हिसाब से नहीं।"
+Learner's explanation: "&lt;learner text&gt;"
+Judge if the explanation names the noun's gender (बहन is feminine) as the reason.
+Return JSON: {"label":"correct"|"partial"|"error","misconception":"M1"|"M2"|"other"|"none","feedback_hi":"...","feedback_en":"..."}</pre>
+<h3>Output and checks before the learner sees it</h3>
+<ol>
+<li><b>Input check (server):</b> the mode must be <code>sentence</code> or <code>explain</code>; the text must be non-empty and at most 300 characters.</li>
+<li><b>Shape check (server):</b> any reasoning text is stripped, the JSON object is extracted and parsed, the <code>label</code> must be in the allowed set, <code>feedback_hi</code> must be a string, and all strings are length-capped. Anything else is rejected as an error.</li>
+<li><b>Cross-check against rules (browser, Q6):</b> a rule-based agreement checker (<code>checker.js</code>: noun-gender lexicon plus verb, adjective and possessive endings) analyses the same sentence. If the rule checker can identify the subject and <i>disagrees</i> with the AI about whether there is an agreement error, the rule-based result is shown with the label "⚖️ AI और नियम में मतभेद — नियम वाला जवाब दिखाया".</li>
+<li><b>Source label:</b> every AI-checked answer shows where the feedback came from: "🤖 Sarvam AI", "📏 ऑफ़लाइन जाँच", or "⚖️ मतभेद".</li>
+</ol>
+<h3>Fallback when the AI fails or is wrong</h3>
+<ul>
+<li><b>Failure</b> (no key, HTTP error, timeout, invalid JSON): the app uses the rule-based checker and labels it "📏 ऑफ़लाइन जाँच (AI उपलब्ध नहीं — नियम से जाँचा)". For Q7 the fallback is a keyword rubric: स्त्रीलिंग/लड़की → correct; mentions the speaker (बोल…) → M2; says गया is right or mentions पुल्लिंग → M1; otherwise partial, with a hint asking which gender बहन is.</li>
+<li><b>Wrong</b>: a disagreement with the rule checker means the rule result is shown (above). Every AI result is logged with what the AI returned and what was shown, so a teacher or the designer can audit the mismatches.</li>
+</ul>
+<p class="muted">Example rule-checker outputs (tested): मेरा किताब खो गया → error M2, "मेरी किताब खो गई" · माँ बाज़ार गया → error M1, "माँ बाज़ार गई" · हम कल मेला जाएँगे → regional variant · दीदी ने खाना बनाया → not flagged (ने-constructions are out of scope, so no false alarm).</p>
+
+<h2>D7 – Pedagogical rationale</h2>
+<h3>How the design supports learning</h3>
+<ul>
+<li><b>Explicit rule first, then practice:</b> one clear rule ("the verb follows the noun, not the speaker"), a colour code (blue = पुल्लिंग, pink = स्त्रीलिंग) used consistently on every screen, and a three-row ending table (‑आ/‑ई/‑ए) keep the load low for a Class 6 learner.</li>
+<li><b>Practice moves from recognition to production:</b> choose (Q1) → classify (Q2) → correct (Q3) → produce a form (Q4) → judge (Q5) → produce a free sentence (Q6) → explain (Q7). This maps onto LO1 → LO2 → LO3.</li>
+<li><b>Misconception-targeted items:</b> every distractor is tagged. गया in Q1 is tagged M1. मेरी in the प्रिया item is tagged M2, which is a deliberate trap: a girl speaker with a masculine noun, so the learner must look at the noun, not the speaker.</li>
+</ul>
+<h3>Feedback and scaffolding</h3>
+<ul>
+<li><b>Feedback names the noun and its gender</b> ("यहाँ बात बहन की है। बहन स्त्रीलिंग है…"). It never just says "wrong", and it always gives the reason the learner can reuse.</li>
+<li><b>Retry before moving on</b> (फिर से कोशिश), so the learner can act on the feedback straight away.</li>
+<li><b>Adaptive next step (rule in <code>adapt()</code>), decided on the first attempt:</b> wrong with M1 or M2 → one extra item on the same misconception; 2 or more wrong in noun sorting → prerequisite mini-lesson on noun gender plus another sort; 3 correct in a row → harder challenge. Each insertion happens at most once, and a banner tells the learner why it appeared, so the system stays transparent and doesn't feel punishing.</li>
+<li><b>Tool support:</b> the gender dictionary lets the learner look up a noun instead of guessing. How often they open it is logged.</li>
+</ul>
+<h3>Answer to the P2 design challenge: errors vs dialect/pronunciation variation</h3>
+<p>Every check returns one of three labels, and <b>only</b> a mismatch between a noun and its verb/adjective/possessive counts as an error:</p>
+<ul>
+<li>✅ <b>सही</b> (correct)</li>
+<li>🟡 <b>क्षेत्रीय रूप – ठीक है</b>: an accepted regional or spelling variant. It is <i>not</i> penalised and comes with a short note. Example in the app: <span class="hi">हम कल मेला जाएँगे</span>. हम for "I" is common in the learner's region, so the app says "यह गलती नहीं है 🙂… लिंग सही है" and adds that मैं is safer in exams. Spelling pairs गये/गए and नयी/नई are normalised before checking, so they are never marked wrong.</li>
+<li>❌ <b>लिंग की गलती</b> (agreement error): counted, tagged M1 or M2, with targeted feedback. Example in the app: <span class="hi">माँ बाज़ार गया</span> → "माँ स्त्रीलिंग → माँ बाज़ार गई".</li>
+</ul>
+<p>Q5 asks the learner to make this distinction themselves (LO3), and the same policy is written into the AI prompt and the rule checker, so all three agree.</p>
+<h3>How L8 and C2 shaped the design</h3>
+<ul>
+<li><b>L8 (home language ≠ school medium):</b> both misconceptions are explained as home-speech habits carried into school Hindi, not as carelessness. The explanation screen opens with "घर पर हम जैसे बोलते हैं, वह भी सही है" to respect the home language before teaching the school rule. Regional forms are accepted rather than corrected. Sarvam, an Indian-language model, was chosen for the AI part for better Hindi handling.</li>
+<li><b>C2 (learner's own language):</b> Sonu reads Hindi fluently but not English, so every screen, question, banner and piece of feedback is in short, simple Hindi by default. The AI prompt requires Class 6-level Hindi in at most 2 sentences. The English toggle is optional (for a teacher or examiner) and clearly shows which language is active.</li>
+<li><b>Typing barrier:</b> many learners can't type Devanagari fluently, so typed questions include a tap-to-add word bank. The learner still has to choose and order the words, which keeps the agreement decision with them.</li>
+</ul>
+
+<h2>D8 – Evaluation plan</h2>
+<table>
+<tr><th>Outcome</th><th>Assessment items / rubric</th><th>Success criterion</th></tr>
+<tr><td>LO1 Classify noun gender</td><td>Q2 and the prerequisite sort, plus a delayed post-test of 10 new nouns (5 non-living, e.g. घड़ी, दरवाज़ा)</td><td>≥ 80% correct on the post-test for ≥ 70% of learners</td></tr>
+<tr><td>LO2 Produce agreeing forms</td><td>Q1, Q3, Q4, Q6, extra items, and a post-test of 5 sentences to correct or complete</td><td>≥ 4/5 on the post-test; M1/M2 errors in a follow-up writing task down by ≥ 50% from the pre-test</td></tr>
+<tr><td>LO3 Explain and distinguish</td><td>Q5 (3 sentences) and Q7 explanation, scored with a 0–2 rubric: <b>2</b> = names the noun and its gender as the reason; <b>1</b> = correct form but vague reason; <b>0</b> = speaker-based or wrong reason</td><td>Average ≥ 1.5 on Q7; Q5 fully correct for ≥ 70% of learners</td></tr>
+</table>
+<h3>Log data collected (already recorded in the app's event log)</h3>
+<ul>
+<li>Every answer: question id, first attempt or retry, correct or not, misconception tag (M1/M2/noun/other), timestamp</li>
+<li>Adaptive insertions: which extra item, prerequisite or challenge was added, and why</li>
+<li>AI usage: what the AI returned, what was shown (AI, rule or offline fallback), and disagreements</li>
+<li>Gender-dictionary opens, retries, start and resume times, total time</li>
+</ul>
+<h3>What counts as success</h3>
+<p>(1) Learners who triggered M1 or M2 answer the matching extra item correctly at least 70% of the time, showing the feedback works. (2) Post-test outcomes meet the criteria above. (3) No learner is penalised for a regional variant, which can be checked from the logs. (4) The AI–rule disagreement rate stays below 10% of Q6 answers, and a teacher review of a sample confirms the label shown was correct.</p>
+
+<h2>AI-use log and reflection</h2>
+<h3>AI tools used (in order)</h3>
+<ol>
+<li><b>Claude Code (Anthropic Claude, in VS Code):</b> one continuous session for the whole exam. It was used to read the exam paper, compare card options, draft DESIGN.md, write the app code (HTML/CSS/JS, rule-based checker, Sarvam serverless function), find Sarvam API documentation by web search, review screenshots, and draft this report. <b>Chat export:</b> full chronological log submitted as <code>AI_chat_log.md</code> (also in the repo at <code>report/AI_chat_log.md</code>)</li>
+<li><b>Sarvam AI <code>sarvam-105b</code>:</b> used <i>inside the app</i> at runtime for learner feedback (not for building it), as specified in D6.</li>
+</ol>
+<h3>Reflection</h3>
+<ul>
+<li><b>Decisions I made and corrected:</b> I chose the card (P2, T2, L8, C2). When the AI suggested Bhojpuri feedback lines, I asked for Bhojpuri to be removed from learner-facing text because I can't verify it, and kept Bhojpuri only as the persona's background. I spotted that the AI's first draft had details that matched other cards (an "evening on a parent's phone" context like L1, a "10 minutes" tagline like C4, and a "P4-style" description), and had them rewritten so everything matches P2, T2, L8 and C2 only. I also switched the AI service from the suggested Claude to Sarvam, an Indian-language model.</li>
+<li><b>How I checked the AI's output:</b> I ran the rule-based checker on test sentences (correct, M1, M2, regional variant, a ने-construction) and fixed one edge case (quoted speech such as "प्रिया बोली…"). I walked through both learner paths on the live app; screenshots taken in English revealed that the language toggle was confusing, which led to a fix. I confirmed that every screenshot shows Hindi (C2).</li>
+<li><b>Limits I'm aware of:</b> the rule checker only knows about 70 nouns and doesn't handle ने-constructions, so unknown sentences go to the AI. The claims about Bhojpuri habits are general and should be checked with a Bhojpuri-speaking teacher. AI feedback can still be wrong, which is why it is cross-checked, labelled and logged.</li>
+<li><b>What AI helped most with:</b> speed in coding and structuring the report. <b>What still needed my judgement:</b> fitting the design to the card, the learner and the constraint, and deciding where AI should and shouldn't be used in the app.</li>
+</ul>
+
+<footer>ET617 End-Semester · लिंग मित्र · Roll No. 23B2503</footer>
+</body>
+</html>
