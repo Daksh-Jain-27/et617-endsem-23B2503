@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>लिंग मित्र · 23B2503</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a href="#" class="brand" onclick="location.reload();return false;">लिंग मित्र</a>
+  <div class="hbtns">
+    <button id="dictBtn" class="btn sm">📖</button>
+    <button id="langBtn" class="btn sm">English</button>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div id="dict" class="modal" hidden>
+  <div class="sheet">
+    <h2 id="dictTitle"></h2>
+    <input id="dictSearch" class="txt" autocomplete="off">
+    <ul id="dictList"></ul>
+    <button id="dictClose" class="btn primary"></button>
+  </div>
+</div>
+
+<footer>ET617 End-Sem · Roll No. <b>23B2503</b> · <a href="#" id="aboutLink">About</a></footer>
+
+<script src="data.js"></script>
+<script src="checker.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
