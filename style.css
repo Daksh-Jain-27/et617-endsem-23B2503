@@ -47,7 +47,7 @@ table.rule td,table.rule th{border:1px solid var(--line);padding:6px;text-align:
 .fb.info{background:#f2f5fa}
 .src{font-size:.8rem;color:var(--muted);margin-bottom:4px}
 .fb hr{border:none;border-top:1px solid rgba(0,0,0,.1)}
-.actions{display:flex;gap:8px;flex-wrap:wrap}.actions .btn{flex:1}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.actions .btn{flex:1;margin-top:0}
 .banner{padding:8px 10px;border-radius:8px;margin:10px 0;font-size:.92rem;background:#fff1d6}
 .banner.streak{background:#e2f3e5}.banner.noun{background:#e8eefc}
 .pill{display:inline-block;font-size:.8rem;background:#eee;border-radius:10px;padding:2px 8px;margin:6px 0}
